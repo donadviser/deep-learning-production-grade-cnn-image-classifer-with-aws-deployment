@@ -1,1 +1,1 @@
-# deep-learning-production-grade-cnn-image-classifer-with-aws-deployment
+# deep-learning-production-grade-image-cnnclassifer-with-aws-deployment
