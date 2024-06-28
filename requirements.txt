@@ -1,0 +1,15 @@
+tensorflow
+pandas
+numpy
+notebook
+matplotlib
+seaborn
+scikit-learn
+python-box
+pyYAML
+tqdm
+ensure
+joblib
+types-PyYAML
+scipy
+-e .
