@@ -7,8 +7,11 @@ import joblib
 from ensure import ensure_annotations
 from box import ConfigBox
 from pathlib import Path
-from typing import Any
+from typing import Any, List, TypeAlias
 import base64
+
+# Define a type alias
+StrList: TypeAlias = List[str]
 
 @ensure_annotations
 def read_yaml(path_to_yaml: Path) -> ConfigBox:
@@ -22,11 +25,13 @@ def read_yaml(path_to_yaml: Path) -> ConfigBox:
         e: empty file
 
     Returns:
-        ConfigBox: ConfigBox type
+        ConfigBox: ConfigBox type containing the YAML content.
     """
     try:
         with open(path_to_yaml) as yaml_file:
             content = yaml.safe_load(yaml_file)
+            if not content:
+                raise ValueError("yaml file is empty")
             logger.info(f"yaml file: {path_to_yaml} loaded successfully")
             return ConfigBox(content)
     except BoxValueError:
@@ -34,18 +39,19 @@ def read_yaml(path_to_yaml: Path) -> ConfigBox:
     except Exception as e:
         raise e
 
-@ensure_annotations
-def create_directories(path_to_directories: list, verbose=True) -> None:
+#@ensure_annotations
+def create_directories(path_to_directories: List, verbose: bool = True) -> None:
     """create list of directories
 
     Args:
         path_to_directories (list): list of path of directories
-        ignore_log (bool, optional): ignore if multiple dirs is to be created. Defaults to False.
+        verbose (bool, optional): Whether to print success messages. Defaults to False.
     """
     for path in path_to_directories:
         os.makedirs(path, exist_ok=True)
         if verbose:
             logger.info(f"created directory at: {path}")
+    return None
 
 @ensure_annotations
 def save_json(path: Path, data: dict) -> None:

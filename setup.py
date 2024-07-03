@@ -7,7 +7,7 @@ __version__ = "0.0.0"
 
 REPO_NAME = "deep-learning-production-grade-image-cnnclassifer-with-aws-deployment"
 AUTHOR_USER_NAME = "donadviser"
-SRC_REPO = "deep-learning-production-grade-image-cnnclassifer-with-aws-deployment"
+SRC_REPO = "deep-learning-image-cnnclassifer-with-aws-deployment"
 AUTHOR_EMAIL = "donadviser@gmail.com"
 
 
