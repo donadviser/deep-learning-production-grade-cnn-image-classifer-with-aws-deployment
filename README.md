@@ -13,6 +13,10 @@
 8. Update the main.py
 
 
+#to view logs
+tensorboard --logdir=artefacts/prepare_callbacks/tensoreboard_log_dir/
+
+
 ### Dataset URL:
 [Click here to download data](https://github.com/donadviser/datasets/raw/master/data-don/cat-dog-data.zip)
 
